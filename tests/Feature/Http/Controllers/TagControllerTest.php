@@ -4,7 +4,6 @@ namespace Tests\Feature\Http\Controllers;
 
 use App\Models\Tag;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 
 class TagControllerTest extends TestCase
@@ -23,7 +22,7 @@ class TagControllerTest extends TestCase
     {
         $tag = Tag::factory()->create();
 
-        $this->delete("tags/{$tag->id}")
+        $this->delete("tags/$tag->id")
             ->assertRedirect('/');
 
         $this->assertDatabaseMissing('tags', ['name' => $tag->name]);
