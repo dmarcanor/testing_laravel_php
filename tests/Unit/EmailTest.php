@@ -17,7 +17,7 @@ class EmailTest extends TestCase
 
     public function test_not_validate_email()
     {
-        $result = validate_email('xd');
+        $result = validate_email('test');
 
         $this->assertFalse($result);
     }
